@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	{% for Event in list %}
+		<div>
+			<div class= 'card'>
+
+				{%if Event.image%}
+					<img class='card-img-top' scr='{{hum.img.url}}' all= 'Card image cap'>
+				{%endif%}
+
+				<div class= 'cards-body'>
+					<h5 class='card title'>{{Event.name}}</h5>
+						<p class='card-text'>{{Event.location}}</p>
+						<p class='card-text'>{{Event.attendees}}</p>
+						<button class='btn btn-secondart' onclick='light_me_up_g({{Event.id}})'>
+						<i id="heart-color-{{Event.id}}"
+							class='far fa-heart {%if hum in my_likes %}text-danger{% endif %}'></i>
+						</button>
+						<br>
+				</div>
+			</div>
+		</div>
+	</div>
+	{%endfor%}
+			
+{% endblock %}
